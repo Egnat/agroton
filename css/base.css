@@ -85,7 +85,7 @@ section {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: #fff;
+  background: #0E0D0D;
   z-index: 9999;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -99,8 +99,8 @@ section {
 }
 
 .loader {
-  border: 8px solid #f3f3f3;
-  border-top: 8px solid #3498db;
+  border: 8px solid #fdeea4;
+  border-top: 8px solid #ffae1b;
   border-radius: 50%;
   width: 60px;
   height: 60px;
