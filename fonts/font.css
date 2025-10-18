@@ -1,0 +1,102 @@
+/*https://www.youtube.com/watch?v=GwA0BN5RgB0&list=PLVTUJUbFu7UeD0HL7zOgkoe7fu_n0chaA&index=101*/
+
+/*
+font-weight:
+Устанавливает насыщенность шрифта.
+100 - Thin
+200 - UltraLite
+300 - Light
+400 - Regular/normal
+500 - Medium
+600 - SemiBold
+700 - Bold
+800 - Heavy / ExtraBold
+900 - Black
+*/
+
+@font-face {
+    font-family: "WorkSans";
+    font-style: normal;
+    font-weight: 300;
+    src: url("../fonts/WorkSans-Light.eot");
+    src: local("0"),
+          url("../fonts/WorkSans-Light.woff2") format("woff2"),/*нужно из ttf сконвертировать в woff2, woff и скачать этот шрифт в папку проекта, и тогда этот код будет работать*/
+          url("../fonts/WorkSans-Light.woff") format("woff"),
+          url('../fonts/WorkSans-Light.ttf') format("truetype"),
+          url('../fonts/WorkSans-Light.svg') format("svg"),
+          url("../fonts/WorkSans-Light.otf") format('opentype');
+    /*font-display: fallback;*/
+    font-display: swap;        
+    /*font-weight: normal;
+    font-style: normal;*/
+  }
+  @font-face {
+    font-family: "WorkSans";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/WorkSans-Regular.eot");
+    src: local("0"),
+          url("../fonts/WorkSans-Regular.woff2") format("woff2"),/*нужно из ttf сконвертировать в woff2, woff и скачать этот шрифт в папку проекта, и тогда этот код будет работать*/
+          url("../fonts/WorkSans-Regular.woff") format("woff"),
+          url('../fonts/WorkSans-Regular.ttf') format("truetype"),
+          url('../fonts/WorkSans-Regular.svg') format("svg"),
+          url("../fonts/WorkSans-Regular.otf") format('opentype');
+    /*font-display: fallback;*/
+    font-display: swap;        
+    /*font-weight: normal;
+    font-style: normal;*/
+  }
+
+  @font-face {
+    font-family: "WorkSans";
+    font-style: normal;
+    font-weight: 500;
+    src: url("../fonts/WorkSans-Medium.eot");
+    src: local("0"),
+          url("../fonts/WorkSans-Medium.woff2") format("woff2"),/*нужно из ttf сконвертировать в woff2, woff и скачать этот шрифт в папку проекта, и тогда этот код будет работать*/
+          url("../fonts/WorkSans-Medium.woff") format("woff"),
+          url('../fonts/WorkSans-Medium.ttf') format("truetype"),
+          url('../fonts/WorkSans-Medium.svg') format("svg"),
+          url("../fonts/WorkSans-Medium.otf") format('opentype');
+    /*font-display: fallback;*/
+    font-display: swap;        
+    /*font-weight: normal;
+    font-style: normal;*/
+  }
+
+  @font-face {
+    font-family: "WorkSans";
+    font-style: normal;
+    font-weight: 600;
+    src: url("../fonts/WorkSans-SemiBold.ttf");
+    src: local("0"),
+          url("../fonts/WorkSans-SemiBold.ttf") format("woff2"),/*нужно из ttf сконвертировать в woff2, woff и скачать этот шрифт в папку проекта, и тогда этот код будет работать*/
+          url("../fonts/WorkSans-SemiBold.ttf") format("woff"),
+          url('..fonts/WorkSans-SemiBold.ttf') format("truetype"),
+          url('../fonts/WorkSans-SemiBold.ttf') format("svg"),
+          url("../fonts/WorkSans-SemiBold.ttf") format('opentype');
+    /*font-display: fallback;*/
+    font-display: swap;        
+    /*font-weight: normal;
+    font-style: normal;*/
+  }
+
+/*
+https://web.dev/articles/variable-fonts?hl=ru
+https://www.youtube.com/watch?v=N9cNuSF6mK0 ОТ 0 ДО 1
+*/
+@font-face {
+    font-family: 'NunitoSans-Variable';
+    src: url('../fonts/NunitoSans-Variable.woff2') format('woff2-variations');
+    src: url('../fonts/NunitoSans-Variable.woff2') format('woff2') tech('variations');
+    font-weight: 300 700;
+    /*font-stretch: 25% 151%; В ЭТОМ ПРОЕКТЕ ЭТА СТРОЧКА НЕ НУЖНА*/
+}
+
+/*@font-face {
+    font-family: 'WorkSans';
+    src: url('../fonts/WorkSans-SemiBold.ttf') format('woff2-variations');
+    src: url('../fonts/WorkSans-SemiBold.ttf') format('woff2') tech('variations');
+    font-weight: 300 700;
+    /*font-stretch: 25% 151%; В ЭТОМ ПРОЕКТЕ ЭТА СТРОЧКА НЕ НУЖНА*
+}*/

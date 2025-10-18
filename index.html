@@ -1,0 +1,502 @@
+<noscript>
+  ОТ 0 ДО 1  https://www.youtube.com/watch?v=N9cNuSF6mK0
+</noscript>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <noscript><!--<link rel="icon" type="image/svg+xml" href="images/head-red.png">--></noscript>
+  <link rel="icon" type="image/png" href="images/Agroton 1.svg">
+  <!--<link rel="stylesheet" type="text/css" href="fonts/font.css">--><noscript>первыми подключаются шрифты, а потом стили. подключил файл в base.scss через @import</noscript>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="reset/reset.css">
+  <!--<link rel="stylesheet" href="normalize/normalize.css">-->
+  <link rel="stylesheet" href="css/base.css">
+  <script type="text/javascript" defer src="script.js/main.js"></script> <noscript><!--МОЖНО ПОКЛЮЧИТЬ ЗДЕСЬ, А МОЖНО В ФУТЕРЕ--></noscript>
+  <noscript><!--<script type="text/javascript">alert("Сайт не адаптирован под планшетную и мобильную версии. The site is not adapted for tablet and mobile versions 😁");</script>--></noscript>
+  <link rel="stylesheet" media="screen and (max-width: 1400px)" href="css/base.css">
+  <title>AGROTON</title>
+</head>
+<body>
+  <div id="preloader">
+    <div class="loader"></div>
+  </div>
+  <div id="overlay" onclick="off()">
+      <!--<div id="text">Overlay Text</div>-->
+      <img id="img-overlay"src="images/POPUP-BIG.png">
+      <img id="img-overlay-mob"src="images/pop-up-mob.png">
+  </div>
+  <header class="header" id="header">
+    <div class="container header-container">
+      <div class="header-container-content">
+        <a href="#footer" class="logo-content">
+          <figure class="filter-logo-img">
+            <img src="images/Agroton 1.svg" class="logo-img" alt="orange circle">
+          </figure>
+          <h3 class="logo-text">Agroton</h3>
+        </a>
+        <nav class="menu">
+          <button class="menuBtn-mob">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <ul class="menu-list-links-nav-header-desktop">
+            <li class="menu-nav-item"><a href="#blocksAbout" class="menu-nav-list-link">About company</a></li>
+            <li class="menu-nav-item"><a href="#products" class="menu-nav-list-link">Products</a></li>
+            <li class="menu-nav-item"><a href="#forPartners" class="menu-nav-list-link">Partners</a></li>
+            <li class="menu-nav-item"><a href="#blog" class="menu-nav-list-link">Blog</a></li>
+            <li class="menu-nav-item"><a href="#" class="menu-nav-list-link">Contact</a></li>
+          </ul>
+        </nav>
+        <!--<a href="#" class="btn-link"> нельзя в а вписывать кнопку и наоборот, потому что оба являются интерактивными элементами и конфликтуют.-->
+          <button onclick="on()" class="nav-btn">Contact us</button>
+        <!--</a>Вложение элемента <a> внутрь тега <button> недопустимо и противоречит стандартам HTML5.-->
+      </div>
+    </div>
+  </header>
+  <main class="main" id="main">
+    <section class="hero-section" id="hero-section">
+      <div class="container container-hero-section container-big">
+        <div class="container-hero-section-content">
+          <!--<figure class="filter-photo-field">
+            <img src="images/Rectangle 6295.png" class="imgField" alt="big photo field">
+          </figure>-->
+          <article class="offer">
+            <h1 class="title">Agroton</h1>
+            <p class="descriptor description">one of the largest producers 
+              of agricultural products in Ukraine
+            </p> 
+          </article>
+          <div class="blocksAbout" id="blocksAbout">
+            <figure class="block-about">
+              <a href="#" class="link-photo-about">
+                <div class="block-photo-about">
+                  <img src="images/Subtract.png" class="img-about" alt="photo small">
+                    <button class="btn-photo-about">
+                      <img src="images/Ellipse 44.png" class="ellips-btn-photo-about" alt="circle">
+                      <img src="images/Vector-1.svg" class="arrow-btn-photo-about" alt="arrow">
+                    </button>
+                </div>
+              </a>
+              <article class="info-about-1">
+                <h4 class="title-info-about">
+                  Agroton is among the leaders in wheat <br>production in Ukraine
+                </h4>
+                <p class="paragraphTwo-info-about-1">
+                  <span class="strong">We rank</span> <!--здесь <b> <strong> не прокатило, поэтому поставил span-->
+                  <span class="span-paragraphTwo-info-about-1 orange">
+                    4th in Ukraine
+                  </span>
+                  in terms of wheat production, ensuring high quality grain thanks to modern technologies 
+                  and fertile Ukrainian fields.
+                </p>
+              </article>
+            </figure>
+            <figure class="block-about">
+              <a href="#" class="link-photo-about">
+                <div class="block-photo-about">
+                  <img src="images/Subtract-2.png" class="img-about" alt="photo small">
+                    <button class="btn-photo-about">
+                      <img src="images/Ellipse 44.png" class="ellips-btn-photo-about" alt="circle">
+                      <img src="images/Vector-1.svg" class="arrow-btn-photo-about" alt="arrow">
+                    </button>
+                </div>
+              </a>
+              <article class="info-about-2">
+                <h4 class="title-info-about">
+                  Agroton – number 1 in chicken production in Ukraine
+                </h4>
+                <p class="paragraphTwo-info-about-2">
+                  <span class="strong">We lead the chicken market</span> in Ukraine, guaranteeing the highest
+                  quality products thanks to modern technologies, safety controls
+                </p>
+              </article>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="advantages" id="advantages">
+      <div class="container containerAdventages">
+        <div class="containerAdventagesContent">
+          <article class="blockAdvantages">
+            <h2 class="titleSection">100%</h2>
+            <p class="pgAdvantages">quality of production</p>
+          </article>
+          <article class="blockAdvantages">
+            <h2 class="titleSection">50+</h2>
+            <p class="pgAdvantages pgAdvantages2">modern agricultural technologies</p>
+          </article>
+          <article class="blockAdvantages">
+            <h2 class="titleSection">1.5 mil. tons</h2>
+            <p class="pgAdvantages pgAdvantages3">products we produce every year</p>
+          </article>
+          <article class="blockAdvantages">
+            <h2 class="titleSection">10+ countries</h2>
+            <p class="pgAdvantages pgAdvantages4">we export products all over the world</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="progress" id="progress">
+      <div class="container containerProgress">
+        <div class="containerProgress-content">
+          <h2 class="titleSection titleSectionProgress"><!--titleSection-->
+            <span class="fat">Agroton is the largest diversified vertically</span>
+            <span class="opacity">agricultural producer in Eastern Ukraine. 
+            Agroton is a regional leader in the cultivation of agricultural crops,
+            livestock farming</span>
+          </h2>
+          <div class="progressBox-img">
+            <figure class="filter-img-progress">
+              <img src="images/Rectangle 6299.png" class="img-progress" alt="wheat">
+              <figcaption style="display: none;">wheat</figcaption>
+            </figure>
+            <article class="progress-table-content">
+              <p class="pg-progress">
+                Agroton is <span class="orange">30 years</span> of leadership in the agricultural sector. 
+                We cultivate <span class="orange">200,000+ hectares of land</span>, supply the market 
+                with quality products and export <span class="orange">to 10+ countries</span>. 
+                <span class="strong">Our mission</span> is to develop agriculture, introduce innovations and provide 
+                people with natural products
+              </p>
+              <dl class="progress-table"><!--обозначает список определений (description list)-->
+                <div class="progress-table-item">
+                  <dt><spav class="orange orange-semibold">№1</spav> in sunflower production in Ukraine</dt><!-- (definition term) — термин или понятие-->
+                  <dd>48,000 hectares of sown areas.</dd><!--(definition description) — описание, пояснение или определение этого термина.-->
+                </div>
+                <div class="progress-table-item">
+                  <dt><spav class="orange orange-semibold">№4</spav> in wheat production</dt>
+                  <dd>50,000 hectares of fields.</dd>
+                </div>
+                <div class="progress-table-item">
+                  <dt><spav class="orange orange-semibold">№1</spav> in grain elevator capacity in Luhansk region</dt>
+                  <dd>235,000 tons of storage.</dd>
+                </div>
+                <div class="progress-table-item">
+                  <dt><spav class="orange orange-semibold">№1</spav> in poultry production in Luhansk region</dt>
+                  <dd>4,000,000 chickens.</dd>
+                </div>
+                <div class="progress-table-item">
+                  <dt><spav class="orange orange-semibold">№5</spav> in milk production in Ukraine</dt>
+                  <dd>4,500 dairy cattle.</dd>
+                </div>
+                <div class="progress-table-item">
+                  <dt><spav class="orange orange-semibold">№2</spav> in bakery production in Luhansk</dt>
+                  <dd>7,000 tons of products per year.</dd>
+                </div>
+              </dl>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="products" id="products">
+      <div class="containerProducts container-big">
+        <div class="wrapper-products"><!--нужно создать, чтобы не загружать большой контайнер. так делают по правилам-->
+          <div class="container containerWrapper-products">
+            <div class="containerWrapperProducts-content">
+              <h2 class="titleSection titleSectionProducts">
+                High quality agricultural products
+              </h2>
+              <picture class="products-list">
+                <a href="#" class="products-list-item" 
+                style="background-image: url(images/Rectangle-6326.png);">
+                  <article class="offer-item-products">
+                    <h3 class="title-item-products">е Cereal crops</h3>
+                    <p class="text-item-products">(wheat, barley, corn)</p>
+                  </article>
+                  <button class="btn-item-products">
+                    <img src="images/arrow-btn-products.svg" class="arrow-btn-products" alt="arrow">
+                  </button>
+                </a>
+                <a href="#" class="products-list-item" 
+                style="background-image: url(images/Mask-group.png);"><!--color:#0E0D0D убрал, потому что в сцсс перенес ниже, где цвет темный-->
+                  <article class="offer-item-products">
+                    <h3 class="title-item-products">🌻 Oilseeds</h3>
+                    <p class="text-item-products">(sunflower, rapeseed, soybean)</p>
+                  </article>
+                  <button class="btn-item-products">
+                    <img src="images/arrow-btn-products.svg" class="arrow-btn-products" alt="arrow">
+                  </button>
+                </a>
+                <a href="#" class="products-list-item" 
+                style="background-image: url(images/Rectangle-6326-2.png);">
+                  <article class="offer-item-products">
+                    <h3 class="title-item-products">🥛 Dairy products</h3>
+                    <p class="text-item-products">(milk, dairy products)</p>
+                  </article>
+                  <button class="btn-item-products">
+                    <img src="images/arrow-btn-products.svg" class="arrow-btn-products" alt="arrow">
+                  </button>
+                </a>
+                <a href="#" class="products-list-item" 
+                style="background-image: url(images/Mask-group-2.png);">
+                  <article class="offer-item-products">
+                    <h3 class="title-item-products">🍞 Bakery products</h3>
+                    <p class="text-item-products">(bread, pastries)</p>
+                  </article>
+                  <button class="btn-item-products">
+                    <img src="images/arrow-btn-products.svg" class="arrow-btn-products" alt="arrow">
+                  </button>
+                </a>
+                <a href="#" class="products-list-item" 
+                style="background-image: url(images/Rectangle-6326-3.png);">
+                  <article class="offer-item-products">
+                    <h3 class="title-item-products">🐔 Poultry farming</h3>
+                    <p class="text-item-products">(chicken, eggs)</p>
+                  </article>
+                  <button class="btn-item-products">
+                    <img src="images/arrow-btn-products.svg" class="arrow-btn-products" alt="arrow">
+                  </button>
+                </a>
+                <a href="#" class="products-list-item" 
+                style="background-image: url(images/Mask-group-3.png);">
+                  <article class="offer-item-products">
+                    <h3 class="title-item-products">🍏 Vegetables and fruits</h3>
+                    <p class="text-item-products">(if available in production)</p>
+                  </article>
+                  <button class="btn-item-products">
+                    <img src="images/arrow-btn-products.svg" class="arrow-btn-products" alt="arrow">
+                  </button>
+                </a>
+              </picture>
+              <a href="#" class="btn-products-link">
+                See catalog
+                <svg class="svg-btn-products-link" width="54" height="54" viewBox="0 0 54 54" 
+                fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="27" cy="27" r="27" fill="#FDFDF0"/><!--white-->
+                  <path d="M32 22V32M32 22H22M32 22L22 32" stroke="black" stroke-width="1.5"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="quality" id="quality">
+      <div class="container containerQuality">
+        <div class="containerQuality-content">
+          <h2 class="titleSection titleSectionQuality">
+            Impressive scale / Convincing quality
+          </h2>
+          <h1 class="titleOffer titleOfferQuality">Agroton</h1>
+        </div>
+        <picture class="filter-img-quality">
+          <img src="images/big-photo-2.png" class="img-quality" alt="field and agrimotor">
+        </picture>
+      </div>
+    </section>
+    <section class="forPartners" id="forPartners">
+      <div class="container container-forPartners">
+        <div class="container-forPartners-content">
+          <div class="left-blockForPartners">
+            <h2 class="titleSection titleSectionForPartners">
+              Agroton is a reliable supplier of agricultural products
+            </h2>
+            <article class="blockBottom">
+              <p class="pgForPartnersLeftBlock">
+                We cooperate with processors, distributors and retail chains, 
+                ensuring stable supplies and high quality standards.
+              </p>
+              <a onclick="on()" class="btn-products-link btnForPartnersLink"><!--убрл href="#" с а, чтоб при нажатии кнопки не переносило к хедеру-->
+                Contact us
+                <svg class="svg-btn-products-link svg-btnForPartnersLink" width="54" height="54" viewBox="0 0 54 54" 
+                fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="27" cy="27" r="27" fill="#FDFDF0"/><!--white-->
+                  <path d="M32 22V32M32 22H22M32 22L22 32" stroke="black" stroke-width="1.5"/>
+                </svg>
+              </a>
+            </article>
+          </div>
+          <figure class="wrappRightBlockForPartners">
+            <div class="right-blockForPartners">
+              <div class="leftHalfRightBlock">
+                <img src="images/Agroton-4.png" class="imgRightBlockForPartnersLogo" alt="logo img">
+                <article class="block-pgs-rightBlockLeftHalf">
+                  <a href="#" class="pgs-rightBlockLeftHalf">
+                    <svg class="btn-arrow-link" width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="12" cy="12" r="12" transform="rotate(90 12 12)" fill="#F4F4E7"/>
+                      <path d="M15 9L15 15M15 9L9 9M15 9L9 15" stroke="#0E0D0D"/>
+                    </svg>
+                    <p class="pgForPartners">
+                      <span class="orange orange-semibold">Direct deliveries</span> of products from the manufacturer
+                    </p>
+                  </a>
+                  <a href="#" class="pgs-rightBlockLeftHalf">
+                    <svg class="btn-arrow-link" width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="12" cy="12" r="12" transform="rotate(90 12 12)" fill="#F4F4E7"/>
+                      <path d="M15 9L15 15M15 9L9 9M15 9L9 15" stroke="#0E0D0D"/>
+                    </svg>
+                    <p class="pgForPartners">
+                      <span class="orange orange-semibold">Guaranteed</span> traceability and certification
+                    </p>
+                  </a>
+                  <a href="#" class="pgs-rightBlockLeftHalf">
+                    <svg class="btn-arrow-link" width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="12" cy="12" r="12" transform="rotate(90 12 12)" fill="#F4F4E7"/>
+                      <path d="M15 9L15 15M15 9L9 9M15 9L9 15" stroke="#0E0D0D"/>
+                    </svg>
+                    <p class="pgForPartners">
+                      <span class="orange orange-semibold">Individual</span>  approach to each partner
+                    </p>
+                  </a>
+                </article>
+              </div>
+              <picture class="filter-imgRightBlockForPartners">
+                <img src="images/img-right-block-for-partners.png" class="imgRightBlockForPartners" alt="">
+              </picture>
+            </div>
+            <div class="black-restengle">
+              <p class="pgBlackRestengle"><span class="orange orange-semibold"> We value</span> long-term relationships and are open to new 
+                opportunities for cooperation!
+              </p>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+    <section class="blog" id="blog">
+      <div class="containerBlog container-big">
+        <div class="wrapper-blog">
+          <div class="container containerWrapperBlog">
+            <div class="containerWrapperBlog-content">
+              <h2 class="titleSection titleSectionBlog">Recent blog posts</h2>
+              <figure class="blocksBlog">
+                <a href="#" class="leftBlockBlog">
+                  <picture class="filterImgLeftBlockBlog">
+                    <img src="images/Image.png" class="imgLeftBlockBlog" alt="field/blue sky">
+                  </picture>
+                  <article class="textLeftBlockBlog">
+                    <h5 class="overTitle">Agroton • 20 Jan 2025</h5>
+                    <div class="wrappTitleBlockBlog">
+                      <h3 class="titleLeftBlockBlog">Agroton expands sown areas</h3>
+                      <button class="btnBlog">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#101828" 
+                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </button>
+                    </div>
+                    <p class="pgLeftBlockBlog">This year we increased sown areas by 10%, which will allow us to 
+                      increase the production of grain and oilseed crops.
+                    </p>
+                  </article>
+                </a>
+                <div class="rightBlockBlog">
+                  <a href="#" class="linkRightBlockBlog">
+                    <picture class="filterImgRightBlock">
+                      <img src="images/ImageSmol-1.png" class="imgRightBlock imgOne" alt="imgOne">
+                    </picture>
+                    <article class="textLeftBlockBlog textRightBlock">
+                    <h5 class="overTitle">Agroton • 20 Jan 2025</h5>
+                    <div class="wrappTitleBlockBlog rightBlockLinkOne">
+                      <h3 class="titleLeftBlockBlog titleRightBlock">Export to a new country!</h3>
+                      <button class="btnBlog">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#101828" 
+                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </button>
+                    </div>
+                    <p class="pgLeftBlockBlog pgRightBlock">We entered the market 
+                      of [country name] and expanded the geography of supplies 
+                      of quality Ukrainian products.
+                    </p>
+                  </article>
+                  </a>
+                  <a href="#" class="linkRightBlockBlog">
+                    <picture class="filterImgRightBlock">
+                      <img src="images/ImageSmall-2.png" class="imgRightBlock imgTwo" alt="imgTwo">
+                    </picture>
+                    <article class="textLeftBlockBlog textRightBlock">
+                    <h5 class="overTitle">Agroton • 20 Jan 2025</h5>
+                    <div class="wrappTitleBlockBlog rightBlockLinkOne">
+                      <h3 class="titleLeftBlockBlog titleRightBlock">Modern technologies in livestock farming</h3>
+                      <button class="btnBlog">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#101828" 
+                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </button>
+                    </div>
+                    <p class="pgLeftBlockBlog pgRightBlock">Agroton has implemented innovative
+                      systems for feeding and caring for livestock, which improves product quality.
+                    </p>
+                  </article>
+                  </a>
+                </div>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer" id="footer">
+    <div class="container containerFooter">
+      <div class="containerFooter-content">
+        <div class="oneFloor">
+          <a href="#hero-section" class="logo-content logo-content-footer">
+            <figure class="filter-logo-img">
+              <img src="images/Agroton 1.svg" class="logo-img" alt="orange circle">
+            </figure>
+            <h3 class="logo-text logoTextFooter">Agroton</h3>
+          </a>
+          <article class="menuFooter">
+            <h4 class="titleFooter">Navigation</h4>
+            <ul class="listMenuFooter">
+              <li class="listItemMenuFooter"><a href="#" class="linkFooter">About company</a></li>
+              <li class="listItemMenuFooter"><a href="#" class="linkFooter">Products</a></li>
+              <li class="listItemMenuFooter"><a href="#" class="linkFooter">Partners</a></li>
+              <li class="listItemMenuFooter"><a href="#" class="linkFooter">Blog</a></li>
+              <li class="listItemMenuFooter"><a href="#" class="linkFooter">Contact</a></li>
+            </ul>
+          </article>
+          <article class="menuFooter">
+            <h4 class="titleFooter">Information</h4>
+            <ul class="listMenuFooter">
+              <li class="listItemMenuFooter"><a href="#" class="linkFooter">Customer Support</a></li>
+              <li class="listItemMenuFooter"><a href="#" class="linkFooter">Delivery Details</a></li>
+              <li class="listItemMenuFooter"><a href="#" class="linkFooter">Terms of cooperation</a></li>
+              <li class="listItemMenuFooter"><a href="#" class="linkFooter">Guarantees</a></li>
+            </ul>
+          </article>
+          <article class="menuFooter">
+            <h4 class="titleFooter">Contacts</h4>
+            <ul class="listMenuFooter">
+              <li class="listItemMenuFooter"><a href="#" class="linkFooter linkFooterContacts">Ukraine, Kyiv, ul. Ilyinskaya 8</a></li>
+              <li class="listItemMenuFooter"><a href="#" class="linkFooter linkFooterContacts">au.gl.notorga@ofni </a></li>
+              <li class="listItemMenuFooter"><a href="#" class="linkFooter linkFooterContacts">+380 98 256 32 65 </a></li>
+            </ul>
+          </article>
+        </div>
+        <article class="twoFloor">
+          <p class="textTwoFloor">2010 - 2025 Agroton © All rights reserved.</p>
+          <a href="#" class="textTwoFloor">Privacy Policy</a>
+          <a href="#" class="textTwoFloor">Offer contract</a>
+        </article>
+      </div>
+    </div>
+    <script type="text/javascript" src="library-jq.js/main-jq.js"></script><!--для плавного переключения страниц-->
+    <!--<script src="script.js/main.js"></script> ПОДКЛЮЧИЛ В HEAD, НО МОЖНО И ТУТ-->
+  </footer>
+    <noscript><!--<script type="text/javascript" src="./dist/swup.js"></script>рекомендация от А.Сокирко 
+      ПЛАВНЫЙ ПЕРЕХОД МЕЖДУ СТР https://www.youtube.com/watch?v=7jr0eUmknsk&t=440s-->
+    <!--</div>-->
+    </noscript>
+  <script> 
+    $(document).ready(function() {  // для плавного переключения страниц 
+      $("body").css("opacity", "1");
+    });
+  </script>
+</body>
+</html>

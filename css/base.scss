@@ -1,0 +1,2149 @@
+/*СкиллФэктори SASS, SCSS https://apps.skillfactory.ru/learning/course/course-v1:Skillfactory+FR+2020/block-v1:Skillfactory+FR+2020+type@sequential+block@60f23eb56d1b4eacace9c2f7c291b31b/block-v1:Skillfactory+FR+2020+type@vertical+block@d4daed27e5ac4f88a3d55cff7035cc47
+Подключение через @import https://apps.skillfactory.ru/learning/course/course-v1:Skillfactory+FR+2020/block-v1:Skillfactory+FR+2020+type@sequential+block@e371d1d18a024171bd3a57713cc89b51/block-v1:Skillfactory+FR+2020+type@vertical+block@9f8019edf1ed421db8b309d1ace18ff9
+А Сокирко. Быть программистом Штуки для фото и текста https://www.youtube.com/watch?v=VaVpUHUM8JU&list=PLVTUJUbFu7UeD0HL7zOgkoe7fu_n0chaA&index=89
+А СОКИРКО ПРО TRANSITION https://www.youtube.com/watch?v=UNaWqWvytKk&list=PLVTUJUbFu7UeD0HL7zOgkoe7fu_n0chaA&index=91
+Объяснения https://www.youtube.com/watch?v=jamSm4rICEQ
+WOW.JS https://wowjs.uk/docs.html ANIMATE.CSS https://animate.style/
+*/ 
+
+@import url('../fonts/font.css');
+@import "index.css";
+@import "variables";
+
+::-webkit-scrollbar {
+    width:.1px;
+    height:5px;
+    //opacity:.02;
+}
+
+::-webkit-scrollbar-button {
+    height:50px;
+    background:#3300d8;//#42e10e
+}
+
+::-webkit-scrollbar-track {
+    background:#274dd7;
+}
+
+::-webkit-scrollbar-track-piece {
+    background:#FDFDFD;
+}
+
+::-webkit-scrollbar-thumb {
+    background:#23db00;
+    border-radius:10px;
+    -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+html {
+    //box-sizing: border-box;
+    scroll-behavior: smooth;
+    transition: scroll-behavior 1.5s ease-in-out; //ПРИ НАЖАТИИ НА ЛОГО В ФУТЕРЕ, ПОДНИМАЕМСЯ К ХЕДЕРУ
+    //transition-behavior: allow-discrete; //увидел у чувака на ютюбе https://www.youtube.com/watch?v=UxFnW2cPRi8, ДЛЯ АНИМАЦИИ ДИСПЛЕЙ НОН
+}
+
+/*
+*, *::before, *::after {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+}
+*/
+
+body {
+    background-color: $body-color;
+    background-image: url('../images/bg-shum.png');
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.35;
+    color: #0E0D0D;
+    //transition: scroll-behavior 1.5s ease-in-out;
+}
+
+section {
+    //padding: 70px 0;
+    margin-top: 140px;
+}
+
+.container {
+    max-width: 1440px;//1210px; такой должен быть размер контейнера, чтобы хедер соответствовал фото в первом экране, как в фигме
+    padding: 0 10px;
+    margin: 0 auto;
+}
+
+.container-big {
+    max-width: 1840px;
+    padding: 0 10px;
+    margin: 0 auto;
+}
+
+.titleSection {
+    font-family: 'WorkSans-SemiBold', sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 1;
+    color: #0E0D0D;
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0; 
+    width: 100vw; 
+    height: 100vh;
+    background: #fff;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 60px; 
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0%   { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);}
+}
+
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #d1d1d180;
+    z-index: 9999;
+    cursor: pointe;
+    backdrop-filter: blur(17px); /*РАЗМЫТИЕ ЗАДНЕГО ФОНА ЭЛЕМЕНТА
+    https://sitist.ru/info-backdrop-filter.htm
+    Другие функции backdrop-filter
+Кроме размытия у свойства backdrop-filter есть и другие возможности:
+/* фильтр URL в SVG *
+backdrop-filter: url(commonfilters.svg#filter);
+/* значения функции фильтра *
+backdrop-filter: blur(2px); /* размытие*
+backdrop-filter: brightness(60%); /* яркость *
+backdrop-filter: contrast(40%); /* контраст *
+backdrop-filter: drop-shadow(4px 4px 10px blue); /* тень, но в отличие от свойства box-shadow во внимание принимаются прозрачные участки в изображении и тень отбрасывается с их учётом. *
+backdrop-filter: grayscale(30%); /* тона серого *
+backdrop-filter: hue-rotate(120deg); /* поворот цвета *
+backdrop-filter: invert(70%); /* инверсия *
+backdrop-filter: opacity(20%); /* прозрачность *
+backdrop-filter: sepia(90%); /* сепия (эффект старинных фотографий) *
+backdrop-filter: saturate(80%); /* насыщенность *
+К элементу можно применить одновременно несколько функций
+backdrop-filter: url(filters.svg#filter) blur(4px) saturate(150%);*/
+}
+
+#img-overlay {
+    position: absolute;
+    height: 100Vh;//700px
+    top: 50%;
+    left: 50%;
+    //border-radius: 70px;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%,-50%);
+    //-ms-transform: translate(-50%,-50%);
+    transition: 0.5s ease;
+    z-index: 1;
+}
+
+#img-overlay-mob {display: none;}
+
+.header {
+    max-width: 100%;
+    //margin: 30px 0;
+}
+
+.header-container-content {//nav
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 30px 0; // padding: 1.9vw 0; цифры с Портфолио
+    //text-align: center;
+    //padding: 30px 200px 30px 200px;
+    //margin: 30px 250px;
+    //overflow: hidden;
+}
+
+.logo-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    gap: 8px;
+    text-decoration: none;
+    cursor: pointer;
+}   
+
+.filter-logo-img {
+    //display: block;
+    width: auto; //устанавливая размеры обложки фото, фотку можно обрезать
+    height: auto; //100% или нужная цифра в рх
+    //margin: 0;
+    //background-color: #7b7b7b;
+    //border-radius: 50%;
+    overflow: hidden;
+}
+
+.logo-img {
+    display: block;
+    width: 100%;
+    //height: 100%;
+    object-fit: cover;
+}
+            
+.logo-text {
+    font-family:'WorkSans', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: normal;
+    letter-spacing: 0.1em;
+    hyphens: auto;
+    color: #0E0D0D;
+}
+
+.menuBtn-mob {
+    display: none;
+}
+
+.menu { //nav
+    //width: 100%;
+}
+            
+.menu-list-links-nav-header-desktop {//ul
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'WorkSans', sans-serif;
+    //font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    //color: #0E0D0D;
+    gap: 0 30px;
+}
+
+.menu-nav-item {//li
+    list-style: none;
+}
+
+.menu-nav-list-link {//a
+    //text-decoration: none;  ОКЛЮЧИЛ, ПОТОМУ ЧТО B HEAD ПОДКЛЮЧЕН RESET
+    //color: #0E0D0D;
+    cursor: pointer;
+}
+            
+btn-link {
+    display: inline-block;
+    text-decoration: none;
+}  
+
+.nav-btn {
+    display: block;
+    //width: 181px;
+    height: 42px;
+    padding: 10px 40px;
+    background-color: #0E0D0D;
+    color: $body-color;
+    font-family: 'WorkSans', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    //border-radius: 100px;
+    /* Скругляем только верхние углы по 10px, нижние — 0 */
+    border-radius: 50px 50px 50px 50px;
+    cursor: pointer;
+}
+
+.hero-section {
+    width: 100%;
+    margin-top: 0;
+    //overflow: hidden;
+}
+
+.container-hero-section.container-big {
+    max-width: 100%;//1820px МОЖНО БЫЛО НЕ ПИСАТЬ. ОСТАВИЛ, ЧТОБЫ МЕСТО НЕ ПУСТОВАЛО. ОТКЛЮЧИЛ, ПОТОМУ ЧТО ВВЕРХУ ЕЖЕ ПРОПИСАЛ СВОЙСТВА ДЛЯ .container-big, КАК ДЛЯ section и .container
+    //padding: 0 10px; ОТКЛЮЧИЛ, ПОТОМУ ЧТО ВВЕРХУ ЕЖЕ ПРОПИСАЛ СВОЙСТВА ДЛЯ .container-big, КАК ДЛЯ section и .container
+    //margin:0 auto; ОТКЛЮЧИЛ, ПОТОМУ ЧТО ВВЕРХУ ЕЖЕ ПРОПИСАЛ СВОЙСТВА ДЛЯ .container-big, КАК ДЛЯ section и .container
+    //max-width: 100%;//расширить контэйнер на всю ширину
+    //padding: 0 0px; //расширить контэйнер на всю ширину
+}
+
+.container-hero-section-content {
+    position: relative;
+    //max-width: 100%;
+    min-height: 641px;
+    background-image: url('../images/Rectangle 6295.png');
+    background-size: cover;
+    background-position: 50% 50%;//center center
+    //background-position: 50% top; /* сдвигает фон вверх */
+    //background-position: 50% bottom;
+    border-radius: 20px; // border: 2px dashed blue; solid — сплошная линия; dashed — пунктирная линия; dotted — граница из точек
+    //overflow: hidden;
+}
+
+filter-photo-field {
+    width: auto;
+    height: auto;
+    overflow: hidden;
+}
+
+imgField {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.offer {
+    //position: absolute;
+    //top: 38px;
+    //left: 133px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 45px;
+    //margin-top: 0px;
+    font-family: 'WorkSans', sans-serif;
+    //letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    hyphens: auto;
+    color: $body-color;
+    overflow: hidden;
+    gap: 0 0;
+}
+
+.title {
+    //padding-top: 101px;
+    //margin: 0; ОКЛЮЧИЛ, ПОТОМУ ЧТО B HEAD ПОДКЛЮЧЕН RESET
+    //font-family: 'WorkSans', sans-serif;
+    font-size: 15.625em;//250рх
+    font-weight: 600;
+    line-height: 0.9em;//0.9 0%; 17%
+    //letter-spacing: normal;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+.descriptor {
+    //margin-top: -71px;
+    //font-family: 'WorkSans', sans-serif;
+    font-size: 2em;//32рх
+    font-weight: 500;
+    //line-height: 1.2;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+.blocksAbout {
+    position: absolute;
+    top: 587px;//545px
+    right: 50px;
+    left: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1420px;
+    margin: 0 auto;
+    gap:180px;
+}
+
+.block-about {
+    display: flex;
+    //justify-content: space-between;
+    align-items: center;
+    max-width: 43%; //width:57%;
+    padding: 14px 10px;
+    margin: 0;
+    background-color: #F4F4E7;
+    border-radius: 20px;
+    gap: 25px;
+    overflow: hidden;
+}
+
+.link-photo-about {
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.block-photo-about {
+    position: relative;
+    //top: 0;
+    //left:0;
+}
+
+.img-about {
+    display: block;
+    width: 214px;//100%
+    height: 142px;//100%
+    object-fit: cover
+}
+
+.btn-photo-about/*::before*/ {
+    //content: "";
+    position: absolute; //relative
+    top: 5px;
+    right: 0px;
+    //left: 184px;
+    display: block;
+    width: 30px;//auto 100%
+    //height: 100%;//auto
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.ellips-btn-photo-about {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 29px;
+    height: 29px;
+}
+
+.arrow-btn-photo-about {
+    position: absolute;
+    top: 9px;
+    left: 9px;
+    width: 11px;
+    height: 11px;
+}
+
+.info-about-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 55%;
+    margin: 10px 0;
+    gap: 20px 0; 
+}
+
+.title-info-about {
+    font-weight: 500;//500
+    text-align: justify;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+.paragraphTwo-info-about-1 {
+    font-size: 14px;
+    font-weight: 300;
+    text-align: justify;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+.strong {
+    font-weight: bold;
+}
+    
+.span-paragraphTwo-info-about-1.orange {
+    color: #F2A531;
+}
+
+.info-about-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 55%;
+    margin: 10px 0;
+    gap: 20px 0; 
+}
+
+.paragraphTwo-info-about-2 {
+    font-size: 14px;
+    font-weight: 300;
+    text-align: justify;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+//SECTION
+.advantages {
+    margin-top: 276px;//180рх
+}
+
+.containerAdventagesContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 20px;
+    background-color: #F4F4E7;
+    border-radius: 20px;
+    //gap: 0 50px;
+}
+
+.blockAdvantages {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    text-align: center;
+    gap: 15px 0;
+}
+
+.pgAdvantages {
+    max-width: 55%;
+    font-size: 22px;
+    word-wrap: break-word;
+    hyphens: auto;
+    opacity: 0.5;
+}
+
+.pgAdvantages2 {
+    max-width: 60%;
+}
+
+.pgAdvantages3 {
+    max-width: 66%;
+}
+
+.pgAdvantages4 {
+    max-width: 62%;
+}
+
+//SECTION
+.progress {
+    width: 100%;
+    overflow: hidden;
+}
+
+.containerProgress-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px 0;
+}
+
+.titleSectionProgress {
+    font-family: 'WorkSans', sans-serif;
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 1.17em;
+    text-align: justify;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+.fat {
+    font-family: 'WorkSans-Medium', sans-serif;
+    font-weight: 500;
+}
+
+.opacity {
+    opacity: 0.8;
+}
+
+.progressBox-img {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    //height: 100%;//136vh  500px
+    gap: 0 50px;
+}
+
+.filter-img-progress {
+    //display: flex;
+    width: 100%;//auto 430px
+    height: 509px;//auto 445px 100%
+    //margin: 0;
+    background-color: #858585;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.img-progress {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-position: 50% top;
+}
+
+.progress-table-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    //width: 100%;
+    padding-top: 5px;
+    gap: 45px;
+}
+
+.pg-progress {
+    //margin: 0;
+    //font-family: 'Nunito Sans', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.5em;
+    text-align: justify;
+}
+
+.orange {
+    color: #F2A531;
+}
+
+.progress-table {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    //align-items: center;
+    width: 100%;
+    margin: 0;
+    border-top: 1px solid rgba(14, 13, 13, .23%);
+    //gap: 10px;
+}
+
+.progress-table-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(14, 13, 13, .23%);
+}
+
+.progress-table-item + .progress-table-item {// у .progress-table-item, который первый паддинг остается 10рх 0, а у остальных 20рх 0, как в фигме
+    padding: 20px 0;
+}
+
+.progress-table-item dt{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.progress-table-item dt .orange-semibold {
+    font-weight: 600;
+}
+
+.progress-table-item dd {
+    opacity: .71;
+}
+
+//SECTION
+.products {
+    width: 100%;
+    overflow: hidden;
+}
+
+containerProductscontainer-big {//чтобы не нагружать контайнер, создали wrapper-products. это по правилам
+    //background-color: #F4F4E7;
+    //max-width: 1840px;
+    //padding: 50 10px;
+    //margin: 0 auto;
+    //border-radius: 20px;
+}
+
+.wrapper-products {
+    padding: 50px 0;
+    background-color: #F4F4E7;
+    border-radius: 20px;
+}
+
+.containerWrapperProducts-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px 0;
+}
+
+.titleSection.titleSectionProducts {
+    font-family: 'WorkSans', sans-serif;//WorkSans-Medium
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+//КОД С GEMENI 2.5 BO FLEXBOX РАБОЧИЙ
+.products-list{
+    display: flex;
+    flex-wrap: wrap; /* Разрешаем элементам переноситься на новую строку */
+    justify-content: center; /* Центрируем элементы по горизонтали */
+    gap: 16px; //БЫЛО 20РХ /* Промежутки между элементами */
+    //padding: 20px; // Я УБРАЛ /* Внутренний отступ контейнера */
+    max-width: 1420px; //1200рх/* Максимальная ширина, чтобы контент не растягивался слишком сильно */
+    width: 100%; /* Занимаем всю доступную ширину до max-width */
+}
+
+.products-list-item {
+    display: flex;
+    flex-direction: column; /* Элементы внутри карточки располагаются вертикально */
+    justify-content: space-between; /* Распределяет пространство между элементами (текст сверху, кнопка снизу) */
+    align-items: flex-start; /* Выравнивает элементы по левому краю */
+    border-radius: 10px;//8px
+    //box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Я ОТКЛЮЧИЛ
+    text-decoration: none; /* Убираем подчеркивание у ссылок */
+    color: #0E0D0D; // было inherit/* Наследуем цвет текста */
+    overflow: hidden; /* Обрезаем контент, выходящий за границы */
+    position: relative; /* Для позиционирования фонового изображения и кнопки */
+    padding: 20px; /* Внутренний отступ для текста */
+    min-height: 313px; //200рх/* Минимальная высота карточки */
+    /* Расчет ширины для 3 колонок с учетом gap */
+    flex: 1 1 calc(33.333% - 40px / 3); /* 33.333% для 3 колонок. 40px/3 = 2*gap/количество_элементов_в_ряду */
+    min-width: 280px; /* Минимальная ширина элемента, чтобы он не сжимался */
+
+    /* Стилизация фонового изображения, которое задано inline в HTML */
+    background-size: cover; /* Изображение покрывает всю область */
+    background-position: center bottom; /* Центрируем и прижимаем к низу */
+    background-repeat: no-repeat; /* Не повторять фон */
+}
+
+/* Стили для элементов с зеленым фоном (исходя из изображения) */
+/* Если фон задается через background-image, то нам нужно
+   имитировать зеленый фон, либо убедиться, что background-image сам зеленый */
+.products-list-item:nth-child(1), //(odd) обращение к нечетным элементам /* Cereal crops */
+//.products-list-item:nth-child(2), /* Oilseeds */ //я убрал и перенес ниже, где цвет темный
+.products-list-item:nth-child(3), /* Dairy products */
+.products-list-item:nth-child(5)  /* Poultry farming */
+{
+    //background-color: #2e7d32; /* Темно-зеленый фон как запасной или для overlay */
+    color: white; /* Белый текст для зеленого фона */
+    
+    /* Добавляем полупрозрачный градиент или overlay, чтобы фон изображения был виден,
+        но текст оставался контрастным. Это может быть сложнее с background-image.
+        Лучше использовать псевдоэлемент или внутренний div для overlay.
+       Для начала, просто используем цвет фона и надеемся на изображение. */
+    position: relative; /* Необходимо для псевдоэлемента */
+}
+
+/* Для карточек с белым фоном */
+.products-list-item:nth-child(4), //((even) обращение к четным элементам /* Bakery products */
+.products-list-item:nth-child(6)  /* Vegetables and fruits */
+{
+    background-color: #ffffff;
+    color: #0E0D0D; // БЫЛО #333/* Темный текст для белого фона */
+}
+
+/* Добавим оверлей для зеленых карточек, чтобы текст был читаемым поверх светлых изображений */
+.products-list-item:nth-child(1)::before,
+.products-list-item:nth-child(2)::before,
+.products-list-item:nth-child(3)::before,
+.products-list-item:nth-child(5)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   /*background: linear-gradient(to top, rgba(46, 125, 50, 0.4) 0%, 
+    rgba(46, 125, 50, 0.8) 100%);*/ //Я ОТКЛЮЧИЛ
+    z-index: 1; /* Оверлей под текстом, но над фоновым изображением */
+    border-radius: 10px; /* Должен совпадать с border-radius родителя */
+}
+
+/* Стили для текстового блока внутри карточки */
+.offer-item-products {
+    display: flex;//я добавил
+    flex-direction: column;//я добавил
+    justify-content: space-between;//я добавил
+    z-index: 2; /* Убеждаемся, что текст поверх оверлея */
+    position: relative; /* Для z-index */
+    padding: 20px;
+    gap: 15px;// я добавил
+    //color: #0E0D0D; Я ДОБАВИЛ, НО МЕНЯЕТСЯ ЦВЕТ У ТЕКСТА ВО ВСЕХ КАРТОЧКАХ НА ТЕМНЫЙ, НЕ ПОДХОДИТ
+}
+
+.title-item-products {
+    margin: 0;//я добавил
+    //margin-top: 0;//было я убрал
+    //margin-bottom: 15px;//было я убрал
+    font-family: 'WorkSans-Regular', sans-serif;
+    font-size: 2em;//32px
+    font-weight: 400;// было bold
+}
+
+.text-item-products {
+    margin: 0;
+    font-size: 1em;
+    font-weight: 300;
+    opacity: 0.8; /* Немного прозрачности для подписи */
+}
+
+/* Для белых карточек текст должен быть темнее */
+.products-list-item:nth-child(2) .text-item-products,
+.products-list-item:nth-child(4) .text-item-products,
+.products-list-item:nth-child(6) .text-item-products {
+    color: #0E0D0D;//было #666
+}
+
+/* Стили для кнопки "стрелка" */
+.btn-item-products {
+    //Я ОТКЛЮЧИЛ //background-color: rgba(255, 255, 255, 0.2); /* Полупрозрачный белый для зеленых карточек */
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute; /* Абсолютное позиционирование внутри .products-list-item */
+    bottom: -3px; //было20рх -3рх поставил я /* Отступ снизу */
+    left: -3px; //было20рх -3рх поставил я /* Отступ слева */
+    z-index: 2; /* Поверх всего */
+    padding: 0; /* Убрать внутренние отступы кнопки */
+    transform: rotate(-37deg);//Я ДОБАВИЛ
+    background-color: rgba(244, 244, 231, 1); //Я ДОБАВИЛ
+}
+
+/* Стили для кнопки в белых карточках */
+.products-list-item:nth-child(4) .btn-item-products,
+.products-list-item:nth-child(6) .btn-item-products {
+    background-color: rgba(244, 244, 231, 1); // было rgba(0, 0, 0, 0.1);/* Полупрозрачный черный для белых карточек */
+}
+
+/* Стили для изображения стрелки внутри кнопки */
+.arrow-btn-products {
+    width: 15px; /* Размер стрелки */
+    height: 15px; /* Размер стрелки */
+    transform: rotate(45deg); /* Поворачиваем стрелку на 45 градусов */
+    //filter: invert(100%); /* Белая стрелка на темном фоне Я ОТКЛЮЧИЛ*/
+}
+
+/* Для белых карточек стрелка должна быть темной */
+.products-list-item:nth-child(4) .arrow-btn-products,
+.products-list-item:nth-child(6) .arrow-btn-products {
+    filter: none; /* Убираем инвертирование для темной стрелки */
+}
+/* Адаптивность для меньших экранов *
+@media (max-width: 992px) {
+    .products-list-item {
+        /* Две колонки на планшетах *
+        flex: 1 1 calc(50% - 30px / 2); /* 30px - это 20px gap + 10px adjustment *
+    }
+}
+
+@media (max-width: 768px) {
+    .products-list-item {
+        /* Одна колонка на мобильных *
+        flex: 1 1 100%;
+        max-width: calc(100% - 40px); /* Учитываем padding .products-list *
+    }
+}*/
+///
+
+//КОД НА ГРИДАХ С МР4 ОТ 0 ДО 1 https://www.youtube.com/watch?v=N9cNuSF6mK0 ЕЩЁ НЕ ПЕРЕПИСАЛ С ВИДЕО
+products-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    gap: 16px;
+}
+///
+
+.btn-products-link {
+    position: relative;
+    display: flex;//inline-flex
+    justify-content: flex-end;
+    align-items: center;
+    width: max-content;// можно не писать
+    padding: 19px 97px 19px 38px;
+    border-radius: 96px;
+    font-family: 'WorkSans', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    background-color: #0E0D0D;
+    color: $body-color;
+}
+
+.btn-products-link .svg-btn-products-link {
+    position: absolute;
+    top:3px;
+    right: 4px;
+}
+
+//SECTION
+//МОЙ КОД С ФОТО БГ В ФАЙЛЕ HTML
+.quality {
+    width: 100%;
+    margin-top: 140px;
+}
+
+.container.containerQuality {
+    max-width: 100%;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.containerQuality-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    gap: 20px 0;
+}
+
+.titleSection.titleSectionQuality {
+    font-family: 'WorkSans', sans-serif;
+    font-weight: 500;
+    //text-transform: uppercase;
+    //text-align: center;
+}
+
+.titleOfferQuality {
+    //width: calc(100% - 0px);//100%
+    //padding-top: 70px;
+    //margin: 0; ОКЛЮЧИЛ, ПОТОМУ ЧТО B HEAD ПОДКЛЮЧЕН RESET
+    font-family: 'WorkSans', sans-serif;
+    font-size: clamp(18.75em, 14vw, 176px);
+    //font-size: 18.75em;//300рх
+    font-weight: 600;
+    line-height: 0.9em;//0.9 0%; 17%
+    //text-align: justify;//это свойство лучше писать параграфам, чтобы их строки ровно доходили до левого и правого края контейнера, создавая равномерные поля с обеих сторон, а не оставлял красивых "рваных" краев справа, как при left-align.
+    //text-transform: uppercase;
+    //text-align: center;
+    color: #F2A531;
+    //letter-spacing: 0em;//normal
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+.filter-img-quality {
+    width: auto;
+    height: auto;
+    margin-top: -123px;
+    overflow: hidden;  
+}
+
+.img-quality {
+    display: block;
+    width: 100%;
+    height: auto;// можно вообще не писать
+    object-fit: cover;
+    object-position: 100% 50%;// двигает фото внутри контейнераего родителя не катит здесь
+    //object-position: -50px center; // Сдвигает изображение на 50px влево от центра 
+    //object-position: calc(0% - 20px) center;//рабочий вариант, но здесь не катит
+    //object-position: (0%, 10%, 20%, left); // не рабочий
+    //background-position: 72% 50%; //сдвигает фон левее не катит здесь, это свойство нужно писать, кода фото прописывают в backgroung-image:url()
+}
+///
+/* МОЙ КОД С ФОТО БГ через url () в этом файле
+.quality {
+    width: 100%;
+    margin-top: 320px;
+    //overflow: hidden;
+}
+
+.containerQuality {
+    max-width: 100%;
+    //min-height: 607px;
+    margin: 0 auto;
+    background-image: url(../images/big-photo-2.png);
+    background-size: cover;
+    background-position: 72% 50%; /* сдвигает фон левее *
+}
+
+.containerQuality-content {
+    position: relative;
+    top: -208px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    padding: 0 10px;
+    margin: 0 auto;
+    text-align: center;
+    text-transform: uppercase;
+    gap: 20px 0;
+    z-index: -1;
+}
+
+.titleSection.titleSectionQuality {
+    font-family: 'WorkSans', sans-serif;
+    font-weight: 500;
+    //text-transform: uppercase;
+    text-align: center;
+}
+
+.titleOfferQuality {
+    //width: calc(100% - 0px);//100%
+    //padding-top: 70px;
+    //margin: 0; ОКЛЮЧИЛ, ПОТОМУ ЧТО B HEAD ПОДКЛЮЧЕН RESET
+    font-family: 'WorkSans', sans-serif;
+    font-size: clamp(18.75em, 14vw, 176px);
+    //font-size: 18.75em;//300рх
+    font-weight: 600;
+    line-height: 0.9em;//0.9 0%; 17%
+    //text-align: justify;//это свойство лучше писать параграфам, чтобы их строки ровно доходили до левого и правого края контейнера, создавая равномерные поля с обеих сторон, а не оставлял красивых "рваных" краев справа, как при left-align.
+    //text-transform: uppercase;
+    //text-align: center;
+    color: #F2A531;
+    letter-spacing: 0em;//normal
+    word-wrap: break-word;
+    hyphens: auto;
+}*/
+/* Секция Quality  КОД С GEMENI 2.5 НЕДОРАБОТАН*
+.quality {
+    width: 100%;
+    height: 100vh; //* Занимает всю высоту viewport *
+    background-image: url('../images/big-photo-2.png'); /* Путь к вашему изображению поля *
+    background-size: cover; //* Изображение покрывает всю секцию *
+    background-position: center bottom; /* Центрируем по горизонтали, прижимаем к низу *
+    background-repeat: no-repeat; //* Не повторять фон *
+    display: flex; /* Используем flexbox для центрирования контента *
+    justify-content: center; // Центрируем контент по горизонтали *
+    align-items: flex-start; // Выравниваем контент сверху 
+    position: relative; // Для позиционирования overlay, если понадобится 
+}
+
+//* Контейнер для содержимого *
+.containerQuality {
+    max-width: 1400px; //* Увеличил ширину для лучшего соответствия фото *
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center; //* Центрируем дочерние элементы по горизонтали *
+    text-align: center; //* Центрируем текст внутри h1, h2 *
+    position: relative;
+    z-index: 2; //* Убеждаемся, что текст поверх возможного оверлея *
+}
+
+//* Верхний текст *
+.titleSectionQuality {
+    font-size: 1.5em; //* Размер шрифта *
+    font-weight: normal; //* Обычный вес *
+    color: #333; //* Цвет текста, как на фото *
+    text-transform: uppercase; //* Все заглавные *
+    margin-bottom: 20px; //* Отступ снизу *
+    letter-spacing: 2px; //* Расстояние между буквами *
+    margin-top: 50px; //* Отступ сверху от края секции *
+}
+
+//* Главный заголовок AGROTON *
+.titleOfferQuality {
+    font-size: 10em; //* Очень большой размер шрифта *
+    font-weight: bold; //* Жирный *
+    color: #e69138; //* Оранжевый цвет *
+    text-transform: uppercase; //* Все заглавные *
+    margin: 0; //* Убираем отступы по умолчанию *
+    line-height: 0.8; //* Уменьшаем межстрочный интервал *
+    letter-spacing: 5px; //* Расстояние между буквами *
+    //* Добавляем тень для лучшей видимости на фоне *
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+}
+*/
+
+//SECTION
+.forPartners {
+    width: 100%;
+    overflow: hidden;
+}
+
+//.container.container-forPartners {}
+
+.container-forPartners-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0 50px;
+}
+
+.left-blockForPartners {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 57%;
+    gap: 238px 0;
+}
+
+.titleSection.titleSectionForPartners {
+    width: 83%;
+    font-family: 'WorkSans', sans-serif;
+    font-weight: 400;
+    line-height: 130%;//1.3
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+.blockBottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px 0;
+}
+
+.pgForPartnersLeftBlock {
+    width: 78%;
+    font-family: 'NunitoSans', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+.wrappRightBlockForPartners {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px 0;
+}
+
+.right-blockForPartners {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 350px;// 364px
+    margin: 0;
+    background-color: #F4F4E7;
+    border-radius: 10px;
+    gap: 0 20px;
+}
+
+.leftHalfRightBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 104%;
+    padding: 30px 0 30px 24px;
+    gap: 126px 0;
+}
+
+.block-pgs-rightBlockLeftHalf {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px 0;
+}
+
+.pgs-rightBlockLeftHalf {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 104%;
+;
+    //line-height: 2.2;
+    gap: 0 15px;
+}
+
+.pgForPartners {
+    width: 100%;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+.orange-semibold {
+    font-family: 'NunitoSans-SemiBold', sans-serif;
+    font-weight: 600;
+}
+
+.filter-imgRightBlockForPartners {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.imgRightBlockForPartners {
+    display: block;
+    width: 100%;
+    height: 100%;// 364px
+    object-fit: cover;
+}
+
+.black-restengle {
+    padding: 30px;
+    background-color: #0E0D0D;
+    border-radius: 10px;
+}
+
+.pgBlackRestengle {
+    font-family: 'NunitoSans', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: $body-color;
+    word-wrap: break-word;
+    hyphens: auto
+}
+
+//SECTION
+.blog {
+    width: 100%;
+    overflow: hidden;
+}
+
+//.containerBlog.container-big {}
+
+.wrapper-blog {
+    padding: 100px 0;
+    background-color: #F4F4E7;
+    border-radius: 20px;
+}
+
+//.container.containerWrapperBlog {}
+
+.containerWrapperBlog-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px 0;
+}
+
+.titleSection.titleSectionBlog {
+    font-family: 'WorkSans-Medium', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.blocksBlog {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 44px;
+}
+
+.leftBlockBlog {//a
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    //width: 61%;
+    gap: 32px 0;
+}
+
+.filterImgLeftBlockBlog {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.imgLeftBlockBlog {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.textLeftBlockBlog {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px 0;
+}
+
+.overTitle {
+    font-family: 'NunitoSans-SemiBold', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #F2A531;
+}
+
+.wrappTitleBlockBlog {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    //gap: 0 216px;//0 178px
+}
+
+.titleLeftBlockBlog {
+    font-family: 'WorkSans', sans-serif;
+    font-size: 1.5em;//24px
+    font-weight: 500;
+}
+
+.btnBlog {
+    background-color: transparent;
+    border: none;
+}
+
+.pgLeftBlockBlog {
+    width: 93%;
+    //font-weight: 400;
+    color: #667085;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+.rightBlockBlog {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px 0;
+}
+
+.linkRightBlockBlog {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 24px;
+}
+
+.filterImgRightBlock {
+    width: 70%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.imgRightBlock {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.wrappTitleBlockBlog.rightBlockLinkOne {
+    width: 100%;
+    //gap: 0;
+}
+
+.titleLeftBlockBlog.titleRightBlock {
+    width: 70%;
+}
+
+.pgLeftBlockBlog.pgRightBlock {
+    //width: 50%;
+}
+
+.footer {
+    width: 100%;
+    margin-top: 140px;
+    background-color: #0E0D0D;
+    overflow: hidden;
+}
+
+//.container.containerFooter {}
+
+.containerFooter-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 0;
+    gap: 30px 0;
+}
+
+.oneFloor {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    gap: 0 20px;
+}
+
+.logo-text.logoTextFooter {
+    color: $body-color;
+}
+
+.menuFooter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    color: $body-color;
+    gap: 20px 0;
+}
+
+.titleFooter {
+    font-family: 'WorkSans', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.listMenuFooter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px 0;
+}
+
+.listItemMenuFooter {
+    list-style: none;
+}
+
+.linkFooter {
+    text-decoration: none;// здесь можно не писать, это свойство для ссылок прописано в reset
+}
+
+.linkFooterContacts {
+    cursor: auto;
+}
+
+.twoFloor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-top: 30px;
+    border-top: 1px solid rgba($body-color, 0.5);//Если вы используете SCSS (Sass), то можно сделать так
+    // border-top: 1px solid mix(white, $body-color, 50%); можно сделать цвет на 50% светлее, смешав с белым (только для SCSS):
+    // border-top: 1px solid rgba(0, 0, 0, 0.5); /* замените 0,0,0 на ваш цвет в RGB */ если у вас есть цвет в переменной $body-color, то в CSS без препроцессора замените его на rgba с 50% прозрачностью:
+    //border-top: 1px solid $body-color;
+    gap: 0 20px;
+}
+
+.textTwoFloor {
+    font-size: 0.88em;//14px
+    color: $body-color;
+}
+
+/* Адаптивные стили */ /* Responsive */
+
+@media screen and (max-width: 1400px) {
+    
+    .container-big {
+        padding: 0;
+    }
+
+    .blocksAbout {
+        align-items: normal;
+    }
+
+    .btn-photo-about {
+        top: 3px;
+        right: -6px;
+    }
+
+    .titleOfferQuality {
+        font-size: clamp(16.75em, 14vw, 176px);
+    }
+
+    .right-blockForPartners {
+        height: 70vh;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+
+    .container {
+        max-width: 1200px;
+        //padding: 0;
+    }
+
+    .container-big {
+        padding: 0;
+    }
+
+    .title {
+        font-size: 13.625em;
+    }
+
+    .descriptor {
+        font-size: 1.7em;
+    }
+
+    .blocksAbout {
+        align-items: normal;
+        //max-width: 58%;
+    }
+
+    .img-about {
+        object-fit: fill;
+    }
+
+    .btn-photo-about {
+        right: -8px;
+    }
+
+    .info-about-1, .info-about-2 {
+        max-width: 61%;
+    }
+
+    containerQuality-content {
+        //max-width: 1200px;
+        //margin: 0 auto;
+    }
+
+    .titleOfferQuality {
+        //width: calc(100% - 38px);
+        font-size: clamp(15.75em, 14vw, 176px);
+    }
+
+    .filter-img-quality {
+        margin-top: -106px;
+    }
+
+    .right-blockForPartners {
+        height: 72vh;
+    }
+}
+
+/* Large: 992px - 1199px */
+@media (max-width: 1199px) {
+
+    .container {
+        max-width: 960px;
+    }
+
+    .menu-list-links-nav-header-desktop {
+        gap: 0 15px;
+    }
+
+    .title {
+        font-size: 11.625em;
+    }
+
+    .descriptor {
+        font-size: 1.5em;
+    }
+
+    .blocksAbout {
+        max-width: 960px;
+        gap: 0 140px;
+    }
+
+    .btn-photo-about {
+        top: 8px;
+        right: -11px;
+    }
+
+    info-about-1, info-about-2 {
+        //max-width: 62%;
+    }
+
+    .title-info-about br {
+        display: none;
+    }
+
+    .containerAdventagesContent {
+        //flex-wrap: wrap;
+        gap: 0 50px;
+    }
+
+    .pgAdvantages {
+        max-width: 100%;
+    }
+
+    .titleSectionProgress {
+        font-size: 40px;
+    }
+
+    .titleOfferQuality {
+        //width: calc(100% - 38px);
+        font-size: clamp(12.75em, 14vw, 176px);
+    }
+
+    .filter-img-quality {
+        margin-top: -90px;
+    }
+
+    .left-blockForPartners {
+        gap: 96px 0;
+    }
+
+    .titleSection.titleSectionForPartners {
+        width: 100%;
+    }
+
+    .filterImgLeftBlockBlog {
+        height: 270px;
+    }
+
+    .right-blockForPartners{
+        height: 65vh;
+    }
+
+    .filterImgRightBlock {
+        width: 149%;
+        height: 212px;
+    }
+
+    .titleLeftBlockBlog.titleRightBlock {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+
+    .container {
+        max-width: 960px;
+    }
+
+    .btn-photo-about {
+        top: 3px;
+        right: -11px;
+    }
+
+    .titleOfferQuality {
+        //width: calc(100% - 300px); //с этим свойством текст складывается, как у меня в портфолио, но здесь так не нужно
+        font-size: clamp(12.75em, 14vw, 176px);
+    }
+
+    .filter-img-quality {
+        margin-top: -85px;
+    }
+
+    .titleSection.titleSectionForPartners {
+        width: 100%;
+    }
+
+    .left-blockForPartners {
+        gap: 97px 0;
+    }
+
+    .blocksBlog {
+        align-items: flex-start;
+    }
+
+    .filterImgLeftBlockBlog {
+        height: 285px;
+    }
+
+    .rightBlockBlog {
+        gap: 39px 0;
+    }
+
+    .filterImgRightBlock {
+        width: 160%;
+        height: 224px;
+    }
+
+    .linkRightBlockBlog:nth-child(1) .filterImgRightBlock .imgRightBlock {//code c gemini 2.5
+        object-position: 100% 50%;// двигает фото внутри контейнера(его родителя .filterImgRightBlock)      
+    }
+
+    .linkRightBlockBlog:nth-child(2) .filterImgRightBlock .imgRightBlock {//code c gemini 2.5
+        object-position: 30% 50%;// двигает фото внутри контейнера(его родителя .filterImgRightBlock)      
+    }
+    /*.imgRightBlock.imgOne { можно записать так, прописав элементу в html доп класс imgOne, imgTwo, а можно как сверху через :nth-child(1)
+        object-position: 100% 50%; двигает фото внутри контейнера(его родителя .filterImgRightBlock)
+    }
+    .imgRightBlock.imgTwo { можно записать так, прописав элементу в html доп класс imgOne, imgTwo, а можно как сверху через :nth-child(1)
+        object-position: 30% 50%; двигает фото внутри контейнера(его родителя .filterImgRightBlock)  
+    */
+    
+    .titleLeftBlockBlog.titleRightBlock {
+        width: 100%;
+    }
+}
+
+/* Medium: 768px - 991px */
+@media screen and (max-width: 991px) {// СВОЙСТА ЭЛЕМЕНТОВ ВПИСЫВАЮ В МЕДИАЗАПРОС 991, А В ПАНЕЛИ РАЗРАБОТЧИКА ВЫСТАВЛЯЮ РАЗМЕР 990
+
+    .container {
+        max-width: 720px;
+        padding: 0;
+    }
+
+    .menu {
+        order: 1;
+    }
+
+    .menuBtn-mob {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 40px;
+        //height: 40px;
+        padding: 0;
+        background-color: transparent;
+        border: none;
+        gap: 8px;
+        z-index: 5;
+    }
+
+    .menuBtn-mob span {
+        width: 100%;
+        height: 3px;
+        background-color: #0E0D0D;
+    }
+
+    .menu-list-links-nav-header-desktop {
+        //display: none;
+        position: absolute;
+        flex-direction: column;
+        top: 0;
+        right: 0;
+        left: 0;
+        padding: 85px 0;
+        background-color: #ffffff;
+        transform: translateY(-100%);//translateX(-100%)
+        transition: transform 0.5s ease;//0.5s
+        gap: 20px 0;
+        z-index: 1;
+    }
+    .menu-list-links-nav-header-desktop.menu-list--active {
+        transform: translateY(0);// translateX(0)
+    }
+
+    .container-hero-section-content {
+        min-height: 506px;
+    }
+
+    .offer {
+        max-width: 720px;
+        margin: 0 auto;
+    }
+
+    .title {
+        font-size: 8.625em;
+    }
+
+    .blocksAbout {
+        max-width: 720px;
+        top: 443px;
+        right: 21px;
+        left: 21px;
+        gap: 0 0px;
+    }
+
+    .block-about {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .link-photo-about {
+        width: 100%;
+    }
+
+    .img-about {
+        width: 100%;
+        height: 170px;
+    }
+
+    .btn-photo-about {
+        top: 11px;
+        right: 8px;
+    }
+
+    .info-about-1, .info-about-2 {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .advantages {
+        margin-top: 450px;
+    }
+
+    .containerAdventagesContent {
+        flex-direction: column;
+    }
+
+    .progressBox-img {
+        //flex-direction: column;
+        flex-wrap: wrap;
+        gap: 40px 0;
+    }
+
+    .progress-table-content {
+        gap: 40px 0;
+    }
+
+    .products-list-item {
+        /* Две колонки на планшетах */
+        flex: 1 1 calc(50% - 30px / 2); /* 30px - это 20px gap + 10px adjustment */
+    }
+
+    .containerQuality-content {
+        max-width: 720px;
+        margin: 0 auto;
+    }
+
+    .titleOfferQuality {
+        //width: calc(100% - 300px); //с этим свойством текст складывается, как у меня в портфолио, но здесь так не нужно
+        font-size: clamp(9.75em, 14vw, 176px);
+    }
+
+    .filter-img-quality {
+        margin-top: -68px;
+    }
+
+    .container-forPartners-content {
+        flex-wrap: wrap;
+        gap: 40px 0;
+    }
+
+    .left-blockForPartners {
+        width: 100%;
+        gap: 40px 0;
+    }
+
+    .right-blockForPartners {
+        height: 59vh;
+    }
+
+    .blocksBlog {
+        flex-wrap: wrap;
+        gap: 40px 0;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    #img-overlay {
+        display: none;
+    }
+
+    #img-overlay-mob {
+        display: block;
+        width: 100%;//310px
+        height: 100%;//615px 100vh
+        //border-radius: 24px;
+        margin: 0 auto;
+        transition:500ms ease;//opacity 0.5s
+        //transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+        //z-index: 1000;
+        /*background-image: url('../public/images/popup-1.png');
+        background-size: cover;*/
+    }
+
+    .container {
+        max-width: 720px; //760-780рх совет перплексити
+    }
+
+    .title {
+        font-size: 8.625em;
+    }
+
+    .descriptor {
+        font-size: 1.3em;
+    }
+
+    .titleOfferQuality {
+        font-size: clamp(9.75em, 14vw, 176px);
+    }
+
+    .filter-img-quality {
+        margin-top: -63px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .container {
+        max-width: 720px;
+    }
+
+    .products-list-item {
+        /* Одна колонка на мобильных */
+        flex: 1 1 100%;
+        max-width: calc(100% - 40px); /* Учитываем padding .products-list */
+    }
+}
+
+/* Small: 576px - 767px */
+@media (max-width: 767px) {
+
+    .container {
+        max-width: 540px;
+    }
+
+    .offer {
+        max-width: 540px;
+    }
+
+    .title {
+        font-size: 6.625em;
+    }
+
+    .blocksAbout {
+        flex-direction: column;
+        max-width: 540px;
+        gap: 40px 0;
+    }
+
+    .block-about {
+        max-width: 100%;
+    }
+
+    .img-about {
+        height: 270px;
+    }
+
+    .advantages {
+        margin-top: 931px;
+    }
+
+    .titleSection {
+        font-size: 35px;
+    }
+
+    .progress-table-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px 0;
+    }
+
+    .progress-table-item dd {
+        margin-left: 0;
+    }
+
+    .containerQuality-content {
+        max-width: 540px;
+    }
+
+    .titleOfferQuality {
+        font-size: clamp(6.75em, 14vw, 176px);
+    }
+
+    .filter-img-quality {
+        margin-top: -50px;
+    }
+
+    .right-blockForPartners {
+        height: 64vh;
+    }
+
+    .oneFloor {
+        flex-wrap: wrap;
+    }
+
+    .logo-content.logo-content-footer {
+        //width: 100%;
+        margin: 0 355px 30px 0;
+    }
+}
+
+/* Extra small: 0px (320px) - 575px */
+@media screen and (max-width: 575px) {
+
+    section {
+        margin-top: 100px;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .offer {
+        //max-width: 540px;
+        padding: 45px 15px;
+    }
+
+    .title {
+        font-size: 4.625em;
+    }
+
+    .blocksAbout {
+        max-width: 100%;
+        right: 15px;
+        left: 15px;
+    }
+
+    .advantages {
+        margin-top: 898px;
+    }
+
+    .containerQuality-content {
+        //max-width: 540px;
+        padding: 0 15px;
+    }
+
+    .titleOfferQuality {
+        font-size: clamp(5.75em, 14vw, 176px);
+    }
+
+    .filter-img-quality {
+        margin-top: -37px;
+    }
+
+    .blockBottom {
+        align-items: center;
+    }
+
+    .titleSection.titleSectionForPartners {
+        text-align: center;
+    }
+
+    .progress-table-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px 0;
+    }
+
+    .progress-table-item dd {
+        margin-left: 0;
+    }
+
+    .pgForPartnersLeftBlock {
+        width: 100%;
+        text-align: center;
+    }
+
+    .leftHalfRightBlock {
+        gap: 40px 0;
+    }
+
+    .right-blockForPartners {
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .pgs-rightBlockLeftHalf {
+        width: 99%;
+    }
+
+    .pgBlackRestengle {
+        text-align: center;
+    }
+
+    .leftBlockBlog {
+        gap: 24px 0;
+    }
+
+    .linkRightBlockBlog {
+        flex-wrap: wrap;
+        gap: 24px 0;
+    }
+
+    .footer {
+        margin-top: 100px;
+    }
+
+    .containerFooter-content {
+        padding: 30px 0;
+    }
+
+    .oneFloor {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .logo-content.logo-content-footer {
+        //margin: 0 325px 30px 0;
+        margin: 0;
+    }
+
+    .twoFloor {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px 0;
+    }
+}
+
+@media screen and (max-width: 510px) {
+
+    .header-container-content {
+        flex-wrap: wrap;
+        gap: 20px 65px;
+    }
+
+    .menu {
+        order: 0;
+    }
+
+    .nav-btn {
+        margin-left: auto;
+    }
+    
+    .advantages {
+        margin-top: 918px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+
+    #img-overlay-mob {
+        height: 100vw;//71%
+    }
+
+    .title {
+        font-size: 3.625em;
+    }
+
+    .advantages {
+        margin-top: 965px;
+    }
+
+    .titleSection {
+        font-size: 30px;
+    }
+
+    .title-item-products {
+        font-size: 1.5em;
+    }
+
+    .titleOfferQuality {
+        font-size: clamp(4.75em, 14vw, 176px);
+    }
+    
+    .filter-img-quality {
+        margin-top: -31px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+
+    .leftHalfRightBlock {
+        padding: 20px 0 20px 10px;
+    }
+
+    .pgs-rightBlockLeftHalf {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 375px) {
+
+    .advantages {
+        margin-top: 998px;
+    }
+    
+    .titleOfferQuality {
+        font-size: clamp(3.75em, 14vw, 176px);
+    }
+
+    .filter-img-quality {
+        margin-top: -26px;
+    }
+
+    .titleSection.titleSectionBlog {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 320px) {
+
+    .header-container-content {
+        gap: 20px 14px;
+    }
+
+    .container-hero-section-content {
+        min-height: 369px;
+    }
+
+    .title {
+        font-size: 2.625em;
+    }
+
+    .descriptor {
+        font-size: 1.1em;
+    }
+
+    .blocksAbout {
+        top: 301px;
+    }
+
+    .btn-photo-about {
+        top: 19px;
+        right: 1px;
+    }
+
+    .advantages {
+        margin-top: 1006px;
+    }
+}
