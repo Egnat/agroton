@@ -247,6 +247,22 @@ backdrop-filter: url(filters.svg#filter) blur(4px) saturate(150%);*/
     //color: #0E0D0D;
     cursor: pointer;
 }
+
+.menu-nav-list-link:hover {
+    //Порядок: line → style → color; 
+    //STYLES: solid/dotted/dashed/wavy/double
+    //text-decoration-line: underline;//Современный способ (CSS3)
+    //text-decoration-style: wavy;//Современный способ (CSS3)
+    //text-decoration-color: red;
+    //text-decoration: line-through wavy #121211;
+    //text-decoration: underline wavy red;/* Красная волнистая линия (как ошибка) */
+    //text-decoration: line-through dashed #999;/* Зачёркнутый текст со стилем */
+    //text-decoration: overline dotted #f4ff24;/* Комбинированное */
+    //text-decoration: underline;
+    text-decoration: underline double #0E0D0D;//red
+    color: #F2A531;
+    transition: .3s ease;
+} 
             
 btn-link {
     display: inline-block;
@@ -1390,8 +1406,14 @@ products-list {
     text-decoration: none;// здесь можно не писать, это свойство для ссылок прописано в reset
 }
 
+.linkFooter:hover {
+    text-decoration: underline double #F2A531;
+    transition: .3s ease;
+}
+
 .linkFooterContacts {
     cursor: auto;
+    //text-decoration: none;
 }
 
 .twoFloor {
@@ -1410,6 +1432,11 @@ products-list {
 .textTwoFloor {
     font-size: 0.88em;//14px
     color: $body-color;
+}
+
+.textTwoFloor:hover {
+    text-decoration: underline;
+    transition: .3s ease;
 }
 
 /* Адаптивные стили */ /* Responsive */

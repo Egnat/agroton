@@ -270,6 +270,14 @@ backdrop-filter: url(filters.svg#filter) blur(4px) saturate(150%);*/
   cursor: pointer;
 }
 
+.menu-nav-list-link:hover {
+  -webkit-text-decoration: underline double #0E0D0D;
+          text-decoration: underline double #0E0D0D;
+  color: #F2A531;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+
 btn-link {
   display: inline-block;
   text-decoration: none;
@@ -1672,6 +1680,13 @@ products-list {
   text-decoration: none;
 }
 
+.linkFooter:hover {
+  -webkit-text-decoration: underline double #F2A531;
+          text-decoration: underline double #F2A531;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+
 .linkFooterContacts {
   cursor: auto;
 }
@@ -1695,6 +1710,12 @@ products-list {
 .textTwoFloor {
   font-size: 0.88em;
   color: #FDFDF0;
+}
+
+.textTwoFloor:hover {
+  text-decoration: underline;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
 }
 
 /* Адаптивные стили */
