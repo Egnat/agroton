@@ -1015,6 +1015,7 @@ products-list {
   text-transform: uppercase;
   background-color: #0E0D0D;
   color: #FDFDF0;
+  cursor: pointer;
 }
 
 .btn-products-link .svg-btn-products-link {
@@ -1609,7 +1610,7 @@ products-list {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 100px 0;
+  padding: 100px 0 30px 0;
   gap: 30px 0;
 }
 

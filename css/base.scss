@@ -253,13 +253,13 @@ backdrop-filter: url(filters.svg#filter) blur(4px) saturate(150%);*/
     //STYLES: solid/dotted/dashed/wavy/double
     //text-decoration-line: underline;//Современный способ (CSS3)
     //text-decoration-style: wavy;//Современный способ (CSS3)
-    //text-decoration-color: red;
+    //text-decoration-color: red;//Современный способ (CSS3)
     //text-decoration: line-through wavy #121211;
     //text-decoration: underline wavy red;/* Красная волнистая линия (как ошибка) */
     //text-decoration: line-through dashed #999;/* Зачёркнутый текст со стилем */
     //text-decoration: overline dotted #f4ff24;/* Комбинированное */
     //text-decoration: underline;
-    text-decoration: underline double #0E0D0D;//red
+    text-decoration: underline double #0E0D0D;//red Сокращённая запись (все параметры)
     color: #F2A531;
     transition: .3s ease;
 } 
@@ -880,6 +880,7 @@ products-list {
     text-transform: uppercase;
     background-color: #0E0D0D;
     color: $body-color;
+    cursor: pointer;
 }
 
 .btn-products-link .svg-btn-products-link {
@@ -1359,7 +1360,7 @@ products-list {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 100px 0;
+    padding: 100px 0 30px 0;
     gap: 30px 0;
 }
 
