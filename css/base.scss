@@ -285,6 +285,11 @@ btn-link {
     cursor: pointer;
 }
 
+.nav-btn:hover {
+    box-shadow: 2px 2px 5px 0px #00000069;
+    transition: box-shadow 300ms ease-in-out;
+}
+
 .hero-section {
     width: 100%;
     margin-top: 0;
@@ -881,6 +886,11 @@ products-list {
     background-color: #0E0D0D;
     color: $body-color;
     cursor: pointer;
+}
+
+.btn-products-link:hover {
+    box-shadow: 5px 5px 10px 0px #00000069;
+    transition: box-shadow 300ms ease-in-out;
 }
 
 .btn-products-link .svg-btn-products-link {

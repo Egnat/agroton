@@ -297,6 +297,15 @@ btn-link {
   cursor: pointer;
 }
 
+.nav-btn:hover {
+  -webkit-box-shadow: 2px 2px 5px 0px #00000069;
+          box-shadow: 2px 2px 5px 0px #00000069;
+  -webkit-transition: -webkit-box-shadow 300ms ease-in-out;
+  transition: -webkit-box-shadow 300ms ease-in-out;
+  transition: box-shadow 300ms ease-in-out;
+  transition: box-shadow 300ms ease-in-out, -webkit-box-shadow 300ms ease-in-out;
+}
+
 .hero-section {
   width: 100%;
   margin-top: 0;
@@ -1016,6 +1025,15 @@ products-list {
   background-color: #0E0D0D;
   color: #FDFDF0;
   cursor: pointer;
+}
+
+.btn-products-link:hover {
+  -webkit-box-shadow: 5px 5px 10px 0px #00000069;
+          box-shadow: 5px 5px 10px 0px #00000069;
+  -webkit-transition: -webkit-box-shadow 300ms ease-in-out;
+  transition: -webkit-box-shadow 300ms ease-in-out;
+  transition: box-shadow 300ms ease-in-out;
+  transition: box-shadow 300ms ease-in-out, -webkit-box-shadow 300ms ease-in-out;
 }
 
 .btn-products-link .svg-btn-products-link {
